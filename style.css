@@ -96,13 +96,72 @@ header {
   box-shadow: none;
 }
 
-/* The nav stays visible and sticky on every page and every screen size:
-   links shrink and wrap on phones instead of disappearing. */
+/* Nav: identical sticky header on every page. Desktop shows the links
+   inline (display:contents keeps them direct flex items of .nav); phones
+   collapse them behind a hamburger that opens a tidy vertical menu.
+   CSS-only — the checkbox is the open/closed state. */
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-links { display: contents; }
+
+.nav-burger { display: none; }
+
 @media (max-width: 860px) {
-  .nav { flex-wrap: wrap; gap: 12px 16px; padding: 12px 0; }
-  .logo { font-size: 1.05rem; }
-  .nav a.link { font-size: 0.85rem; }
-  .nav .btn { display: none; }
+  .nav { flex-wrap: wrap; gap: 0 12px; padding: 12px 0; }
+  .logo { font-size: 1.1rem; }
+
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .nav-burger span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--navy);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-toggle:focus-visible ~ .nav-burger { outline: 2px solid var(--royal); outline-offset: 2px; }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding: 8px 0 16px;
+  }
+
+  .nav-toggle:checked ~ .nav-links { display: flex; }
+
+  .nav-links a.link {
+    display: block;
+    padding: 13px 4px;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links .btn { margin-top: 16px; text-align: center; }
 }
 
 /* ---------- Hero ---------- */
