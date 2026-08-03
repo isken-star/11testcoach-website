@@ -49,7 +49,8 @@ header {
 .nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: 12px 18px;
   padding: 14px 0;
 }
 
@@ -71,6 +72,7 @@ header {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .nav a.link:hover { color: var(--royal); }
@@ -259,7 +261,8 @@ header {
 @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Sections ---------- */
-section { padding: 56px 0; }
+/* scroll-margin keeps anchor targets clear of the sticky header. */
+section { padding: 56px 0; scroll-margin-top: 90px; }
 
 .kicker {
   font-size: 0.8rem;
@@ -339,6 +342,46 @@ p.section-sub { color: var(--text-2); max-width: 40rem; margin-bottom: 36px; }
 @media (max-width: 720px) {
   .privacy-banner { grid-template-columns: 1fr; text-align: center; }
   .privacy-banner img { margin: 0 auto; }
+}
+
+/* ---------- Our story ---------- */
+.story { display: grid; grid-template-columns: 340px 1fr; gap: 44px; align-items: start; }
+
+.story-photo { margin: 0; }
+
+.story-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 6px solid var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.story-photo figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-top: 12px;
+}
+
+.story-copy p {
+  color: var(--text-2);
+  font-size: 1.08rem;
+  margin-bottom: 16px;
+}
+
+.story-copy p b { color: var(--navy); }
+
+.story-copy .story-sign {
+  margin-top: 22px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+@media (max-width: 860px) {
+  .story { grid-template-columns: 1fr; gap: 28px; }
+  .story-photo { max-width: 340px; margin: 0 auto; }
 }
 
 /* ---------- Steps ---------- */
