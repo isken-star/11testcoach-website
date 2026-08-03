@@ -46,12 +46,15 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
+/* Vertical padding only — the horizontal gutter comes from .wrap, so the
+   logo and menu button line up with the page content underneath. */
 .nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px 18px;
-  padding: 14px 0;
+  gap: 12px 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .logo {
@@ -115,35 +118,54 @@ header {
 .nav-burger { display: none; }
 
 @media (max-width: 860px) {
-  .nav { flex-wrap: wrap; gap: 0 12px; padding: 12px 0; }
+  .nav { flex-wrap: wrap; gap: 0 12px; padding-top: 12px; padding-bottom: 12px; }
   .logo { font-size: 1.1rem; }
 
+  /* A labelled pill, not a bare icon. On a phone this button is the only
+     route to the rest of the site, so it looks like the buttons elsewhere
+     on the page, says what it does, and swaps to "Close" when open. */
   .nav-burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     box-sizing: border-box;
-    width: 44px;
-    height: 44px;
-    padding: 10px;
+    min-height: 44px;
+    padding: 10px 18px;
     cursor: pointer;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--surface);
+    border-radius: 999px;
+    background: var(--royal);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    box-shadow: 0 6px 16px rgba(26, 115, 240, 0.35);
   }
 
-  .nav-burger span {
+  .nav-burger-bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18px;
+    height: 14px;
+  }
+
+  .nav-burger-bars span {
     display: block;
     height: 2px;
     border-radius: 2px;
-    background: var(--navy);
+    background: #fff;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
-  .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
-  .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  /* Only one of the two words is ever in the DOM flow, so the button's
+     accessible name follows the visible label without an aria-label. */
+  .nav-burger-close { display: none; }
+
+  .nav-toggle:checked ~ .nav-burger .nav-burger-open { display: none; }
+  .nav-toggle:checked ~ .nav-burger .nav-burger-close { display: inline; }
+
+  .nav-toggle:checked ~ .nav-burger .nav-burger-bars span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle:checked ~ .nav-burger .nav-burger-bars span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .nav-burger .nav-burger-bars span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   .nav-toggle:focus-visible ~ .nav-burger { outline: 2px solid var(--royal); outline-offset: 2px; }
 
