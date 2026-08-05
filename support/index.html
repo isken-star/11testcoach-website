@@ -27,6 +27,23 @@
     <a class="btn" href="/#cta">Coming to the App&nbsp;Store</a>
     </nav>
   </div>
+  <script>
+    // The phone menu is a CSS-only checkbox, so a tapped link would leave
+    // it open over the content — close it whenever a menu link is chosen.
+    // Closing collapses the header mid-navigation, which can swallow the
+    // browser's own anchor scroll, so same-page anchors re-scroll once
+    // layout has settled (scroll-margin-top keeps the header clearance).
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('.nav-links a');
+      if (!link) return;
+      document.getElementById('nav-toggle').checked = false;
+      var id = (link.hash || '').slice(1);
+      if (id && link.pathname === location.pathname) {
+        var target = document.getElementById(id);
+        if (target) requestAnimationFrame(function () { target.scrollIntoView(); });
+      }
+    });
+  </script>
 </header>
 
 <main class="page">
