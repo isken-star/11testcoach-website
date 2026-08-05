@@ -857,7 +857,7 @@ footer {
   background: #000;
 }
 
-.shot img { width: 100%; display: block; }
+.shot img { width: 100%; height: auto; display: block; }
 
 .shot-caption { text-align: center; font-size: 0.85rem; color: var(--text-2); font-weight: 600; margin-top: 10px; }
 
