@@ -47,14 +47,22 @@ header {
 }
 
 /* Vertical padding only — the horizontal gutter comes from .wrap, so the
-   logo and menu button line up with the page content underneath. */
+   logo and menu button line up with the page content underneath.
+   nowrap: the App Store button must never drop to a second row — below
+   the burger breakpoint the whole menu collapses instead. */
 .nav {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 14px;
+  flex-wrap: nowrap;
+  gap: 12px;
   padding-top: 14px;
   padding-bottom: 14px;
+}
+
+.nav .btn {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .logo {
@@ -74,7 +82,7 @@ header {
   color: var(--text-2);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   white-space: nowrap;
 }
 
@@ -117,7 +125,7 @@ header {
 
 .nav-burger { display: none; }
 
-@media (max-width: 860px) {
+@media (max-width: 1059px) {
   .nav { flex-wrap: wrap; gap: 0 12px; padding-top: 12px; padding-bottom: 12px; }
   .logo { font-size: 1.1rem; }
 
