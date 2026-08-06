@@ -1,0 +1,5 @@
+# 11+ Test Coach — everything here is public marketing content.
+User-agent: *
+Allow: /
+
+Sitemap: https://11testcoach.co.uk/sitemap.xml
