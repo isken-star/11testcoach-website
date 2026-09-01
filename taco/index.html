@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet Taco — the coach who never gives the answer | 11+ Test Coach</title>
+<meta name="description" content="Taco sits on every question in the app and has never once given away an answer. How the hints work, why he is silent in mock tests, and how much help you decide he offers.">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/assets/taco-wave.png" type="image/png">
+<link rel="canonical" href="https://11testcoach.co.uk/taco/">
+<meta property="og:title" content="Meet Taco — the coach who never gives the answer | 11+ Test Coach">
+<meta property="og:description" content="Taco sits on every question in the app and has never once given away an answer. How the hints work, why he is silent in mock tests, and how much help you decide he offers.">
+<meta property="og:image" content="https://11testcoach.co.uk/assets/taco-tip.png">
+<meta property="og:url" content="https://11testcoach.co.uk/taco/">
+<!-- Anonymous visitor counting. No cookies, nothing that identifies a
+     reader. Swap this one tag to change provider; analytics.js does not care. -->
+<script src="https://cdn.usefathom.com/script.js" data-site="IPBQOBWB" defer></script>
+<script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/"><img src="/assets/taco-wave.png" alt="">11+ Test Coach</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger"><span class="nav-burger-bars"><span></span><span></span><span></span></span><span class="nav-burger-open">Menu</span><span class="nav-burger-close">Close</span></label>
+    <nav class="nav-links">
+    <a class="link" href="/#features">Features</a>
+    <a class="link" href="/taco/">Meet Taco</a>
+    <a class="link" href="/subjects/">See the app</a>
+    <a class="link" href="/#story">Our story</a>
+    <a class="link" href="/guide/">Parent guide</a>
+    <a class="link" href="/kids/">Kids' guide</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="link" href="/#faq">FAQ</a>
+    <a class="link" href="/support/">Support</a>
+    <a class="store-badge" href="https://apps.apple.com/gb/app/11-test-coach/id6782715811"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
+    </nav>
+  </div>
+  <script>
+    // The phone menu is a CSS-only checkbox, so a tapped link would leave
+    // it open over the content — close it whenever a menu link is chosen.
+    // Closing collapses the header mid-navigation, which can swallow the
+    // browser's own anchor scroll, so same-page anchors re-scroll once
+    // layout has settled (scroll-margin-top keeps the header clearance).
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('.nav-links a');
+      if (!link) return;
+      document.getElementById('nav-toggle').checked = false;
+      var id = (link.hash || '').slice(1);
+      if (id && link.pathname === location.pathname) {
+        var target = document.getElementById(id);
+        if (target) requestAnimationFrame(function () { target.scrollIntoView(); });
+      }
+    });
+  </script>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section id="taco" class="page-head">
+      <div class="taco-hero">
+        <img src="/assets/taco-celebrate.png" alt="Taco the hamster, arms raised" width="300" height="300" loading="lazy">
+        <div>
+          <div class="kicker">Meet the coach</div>
+          <h1 class="section-title">This is Taco. The whole app is named after him.</h1>
+          <p class="lead-sm">Every child gets stuck. What happens in that moment decides whether they learn something or quietly give up — so we built a coach for it. Taco sits on every one of the 12,000+ questions in the app, and he has never once given away an answer.</p>
+          <p class="lead-sm"><b>He nudges. He doesn't tell.</b> A child who is stuck gets a way in, tries again themselves, and gets the credit — while you get an honest record of how often the help was needed.</p>
+        </div>
+      </div>
+
+      <h3 class="taco-subhead">Stuck on a question? Taco helps one small step at a time.</h3>
+      <p class="section-sub">Your child chooses how much help to take. Each step gives a little more — and the answer is never one of them. Two more steps follow if they are still stuck: a second hint naming the method, then a worked example on a <em>different</em> question. <a href="/guide/">See all four in the parent guide →</a></p>
+
+      <div class="taco-ladder">
+        <figure class="taco-step">
+          <div class="step-n">Step 1</div>
+          <div class="shot-crop"><img src="/assets/screens/taco-step1.jpg" alt="Taco's help sheet offering a Give me a clue button" width="780" height="866" loading="lazy"></div>
+          <figcaption><b>"I can help"</b>Taco waits in the corner of every question. Nothing pops up, nothing interrupts — your child taps only if they want him.</figcaption>
+        </figure>
+        <figure class="taco-step">
+          <div class="step-n">Step 2</div>
+          <div class="shot-crop"><img src="/assets/screens/taco-step2.jpg" alt="Taco giving the first hint about place value" width="780" height="866" loading="lazy"></div>
+          <figcaption><b>A first clue</b>A nudge toward what to notice — here, what one ten is actually worth. Enough to get moving, not enough to skip the thinking.</figcaption>
+        </figure>
+      </div>
+
+      <div class="taco-rules">
+        <div class="taco-rule"><span>🤫</span><b>Never the answer</b>Every hint is checked automatically against the correct answer before it ships. If a hint gives the game away, it doesn't ship.</div>
+        <div class="taco-rule"><span>⏱️</span><b>Silent in mock tests</b>Taco is switched off in every timed mock, so the scores you use to judge readiness are honestly your child's own.</div>
+        <div class="taco-rule"><span>⭐️</span><b>Rewards going it alone</b>Answering correctly without opening Taco earns a bonus. Beating a question they previously got wrong pays full marks too.</div>
+      </div>
+
+      <p class="app-gallery-note">Parent Mode counts every hint, and separates what your child can do alone from what they manage after a nudge — the gap is your revision list. You choose how much help exists at all: everything, one clue only, or none. <a href="/guide/">See it in the parent guide →</a></p>
+
+    </section>
+
+
+    <section class="mid-cta">
+      <div class="mid-cta-inner">
+        <p><b>Start tonight, free for 7 days.</b> Add your child, pick their target school, and they can be answering their first questions in a couple of minutes.</p>
+        <a class="store-badge" href="https://apps.apple.com/gb/app/11-test-coach/id6782715811"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 11+ Test Coach · 11testcoach.co.uk</div>
+    <nav>
+      <a href="/guide/">Parent guide</a>
+      <a href="/kids/">Kids' guide</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/support/">Support</a>
+      <a href="mailto:help@11testcoach.co.uk">help@11testcoach.co.uk</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
