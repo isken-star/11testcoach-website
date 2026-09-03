@@ -680,6 +680,18 @@ p.section-sub { color: var(--text-2); max-width: 40rem; margin-bottom: 36px; }
   margin-bottom: 14px;
 }
 
+/* Taco is a hamster, not a taco. The emoji set has no hamster that reads at
+   44px, so this one card carries the real artwork instead. */
+.feature .icon-img { padding: 4px; }
+
+.feature .icon-img img {
+  /* The .icon box is a centred grid, so height:100% does not resolve against
+     it and the artwork rendered 36x48 inside a 44x44 tile. Pin both axes. */
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
 .feature h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
 
 .feature p { font-size: 0.95rem; color: var(--text-2); }
