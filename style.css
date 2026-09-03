@@ -315,7 +315,7 @@ header {
 /* ---------- Stats ---------- */
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 8px 0 26px;
 }
@@ -339,7 +339,10 @@ header {
   color: var(--text-2);
 }
 
-@media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stats .stat:last-child { grid-column: 1 / -1; }
+}
 
 /* ---------- Hero trust signals ---------- */
 .hero-badge {
@@ -777,6 +780,15 @@ p.section-sub { color: var(--text-2); max-width: 40rem; margin-bottom: 36px; }
 
 /* ---------- Subjects strip ---------- */
 .subjects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+.subjects-strip { padding: 0 0 8px; }
+
+.subject-icon {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
 
 .subject {
   border-radius: var(--radius);
