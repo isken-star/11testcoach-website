@@ -1326,19 +1326,23 @@ footer {
   .sticky-cta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 14px;
+    gap: 12px;
     position: fixed;
     left: 12px;
     right: 12px;
     bottom: 12px;
     z-index: 40;
-    padding: 12px 14px 12px 18px;
-    border-radius: 16px;
-    background: var(--royal);
-    color: #fff;
+    padding: 10px 12px 10px 10px;
+    border-radius: 18px;
+    /* Warm and light, not another blue slab. Safari tints its own toolbar
+       from the page edge, so a blue bar merged into the browser chrome and
+       lost its edges — theme-color now pins that, and this ground keeps the
+       bar visually separate regardless. */
+    background: #FFF8EE;
+    border: 1px solid #F2DCBC;
+    color: var(--navy);
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(13, 41, 107, 0.28);
+    box-shadow: 0 10px 30px rgba(13, 41, 107, 0.18);
     transform: translateY(140%);
     opacity: 0;
     pointer-events: none;
@@ -1351,15 +1355,35 @@ footer {
     pointer-events: auto;
   }
 
-  .sticky-cta-text b { display: block; font-size: 1rem; font-weight: 800; }
-  .sticky-cta-text small { display: block; font-size: 0.72rem; opacity: 0.85; font-weight: 600; }
+  .sticky-cta-taco {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 auto;
+    object-fit: contain;
+  }
+
+  .sticky-cta-text { flex: 1 1 auto; min-width: 0; }
+  .sticky-cta-text b { display: block; font-size: 1rem; font-weight: 800; color: var(--navy); }
+  .sticky-cta-text small {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .sticky-cta-go {
-    background: #fff;
-    color: var(--royal);
+    flex: 0 0 auto;
+    /* Navy on orange, not white on orange: white on #F59429 is about 2.2:1
+       and fails contrast outright. Navy on the same orange is ~5.7:1. */
+    background: var(--orange);
+    color: var(--navy);
     font-weight: 800;
     font-size: 0.9rem;
-    padding: 8px 18px;
+    /* 44px minimum tap target — at 10px padding this came out 43. */
+    padding: 12px 16px;
     border-radius: 999px;
     white-space: nowrap;
   }

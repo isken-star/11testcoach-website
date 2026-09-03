@@ -7,6 +7,7 @@
 <meta name="description" content="11+ Test Coach is a friendly iOS app for UK 11+ preparation: 12,000+ practice questions, mock tests and progress insights across Maths, English, Verbal and Non-Verbal Reasoning — with every bit of data staying on your device.">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/assets/taco-wave.png" type="image/png">
+<meta name="theme-color" content="#F7FAFF">
 <link rel="canonical" href="https://11testcoach.co.uk/">
 <meta property="og:title" content="11+ Test Coach — Calm, private 11+ practice">
 <meta property="og:description" content="12,000+ questions, mock tests and a hamster coach called Taco. No accounts, no ads, no tracking — everything stays on your device.">
@@ -410,24 +411,27 @@
     </section>
 
   </div>
-<a class="sticky-cta" href="https://apps.apple.com/gb/app/11-test-coach/id6782715811" aria-label="Download free on the App Store">
-  <span class="sticky-cta-text"><b>Download free</b><small>7-day free trial · cancel any time</small></span>
-  <span class="sticky-cta-go">Get</span>
+<a class="sticky-cta" href="https://apps.apple.com/gb/app/11-test-coach/id6782715811" aria-label="Start your free trial on the App Store">
+  <img class="sticky-cta-taco" src="/assets/taco-wave.png" alt="" aria-hidden="true" width="120" height="120">
+  <span class="sticky-cta-text"><b>Try it free tonight</b><small>7 days free, then £16.99</small></span>
+  <span class="sticky-cta-go">Start free</span>
 </a>
 
 <script>
-  // The hero already carries a download button; the sticky bar only earns its
-  // place once that button has scrolled away. A scroll check rather than an
-  // IntersectionObserver, because it is trivial to reason about and works in
-  // any rendering context. Purely additive: with JS off the bar never appears
-  // and every other CTA still works.
+  // The bar waits until the reader has committed to scrolling. On the home
+  // page that means past the hero's own download button, so the two never
+  // compete; other pages have no hero button, so a fixed distance stands in.
+  // Purely additive: with JS off the bar never appears and every other
+  // download link still works.
   (function () {
     var bar = document.querySelector('.sticky-cta');
+    if (!bar) return;
     var heroCta = document.querySelector('.hero-ctas');
-    if (!bar || !heroCta) return;
+    function threshold() {
+      return heroCta ? heroCta.offsetTop + heroCta.offsetHeight : 320;
+    }
     function update() {
-      var passed = window.scrollY > heroCta.offsetTop + heroCta.offsetHeight;
-      bar.classList.toggle('is-visible', passed);
+      bar.classList.toggle('is-visible', window.scrollY > threshold());
     }
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);

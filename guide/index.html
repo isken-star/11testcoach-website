@@ -7,6 +7,7 @@
 <meta name="description" content="The complete parent guide to 11+ Test Coach: the PIN-protected Parent Mode, Taco help levels, real-world rewards, daily plans, mock tests, progress reports and more.">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/assets/taco-wave.png" type="image/png">
+<meta name="theme-color" content="#F7FAFF">
 <link rel="canonical" href="https://11testcoach.co.uk/guide/">
 <meta property="og:title" content="Parent guide — 11+ Test Coach">
 <meta property="og:description" content="Everything Parent Mode can do — with real screenshots. Help levels, rewards, plans, mocks and reports.">
@@ -411,6 +412,34 @@
     </section>
 
   </div>
+<a class="sticky-cta" href="https://apps.apple.com/gb/app/11-test-coach/id6782715811" aria-label="Start your free trial on the App Store">
+  <img class="sticky-cta-taco" src="/assets/taco-wave.png" alt="" aria-hidden="true" width="120" height="120">
+  <span class="sticky-cta-text"><b>Try it free tonight</b><small>7 days free, then £16.99</small></span>
+  <span class="sticky-cta-go">Start free</span>
+</a>
+
+<script>
+  // The bar waits until the reader has committed to scrolling. On the home
+  // page that means past the hero's own download button, so the two never
+  // compete; other pages have no hero button, so a fixed distance stands in.
+  // Purely additive: with JS off the bar never appears and every other
+  // download link still works.
+  (function () {
+    var bar = document.querySelector('.sticky-cta');
+    if (!bar) return;
+    var heroCta = document.querySelector('.hero-ctas');
+    function threshold() {
+      return heroCta ? heroCta.offsetTop + heroCta.offsetHeight : 320;
+    }
+    function update() {
+      bar.classList.toggle('is-visible', window.scrollY > threshold());
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
 </main>
 
 <footer>
