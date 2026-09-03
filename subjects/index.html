@@ -7,6 +7,7 @@
 <meta name="description" content="A question screen from all four 11+ subjects, and the full topic list each one covers: maths, English comprehension, verbal reasoning and non-verbal reasoning.">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/assets/taco-wave.png" type="image/png">
+<meta name="theme-color" content="#F7FAFF">
 <link rel="canonical" href="https://11testcoach.co.uk/subjects/">
 <meta property="og:title" content="What's in the app — every 11+ subject covered | 11+ Test Coach">
 <meta property="og:description" content="A question screen from all four 11+ subjects, and the full topic list each one covers: maths, English comprehension, verbal reasoning and non-verbal reasoning.">
@@ -68,7 +69,7 @@
     <section id="subjects">
       <div class="kicker">See the app</div>
       <h2 class="section-title">What's in the app — exactly as your child will see it.</h2>
-      <p class="section-sub">Real screens, straight from the app. One question screen per subject, plus the home screen your child starts from and the progress views you get as a parent.</p>
+      <p class="section-sub">Whichever subjects your child's target school tests, this is what they will be practising — one question screen from each, and the topics behind them.</p>
 
       <div class="subject-detail">
         <aside>
@@ -133,6 +134,34 @@
     </section>
 
   </div>
+<a class="sticky-cta" href="https://apps.apple.com/gb/app/11-test-coach/id6782715811" aria-label="Start your free trial on the App Store">
+  <img class="sticky-cta-taco" src="/assets/taco-wave.png" alt="" aria-hidden="true" width="120" height="120">
+  <span class="sticky-cta-text"><b>Try it free tonight</b><small>7 days free, then £16.99</small></span>
+  <span class="sticky-cta-go">Start free</span>
+</a>
+
+<script>
+  // The bar waits until the reader has committed to scrolling. On the home
+  // page that means past the hero's own download button, so the two never
+  // compete; other pages have no hero button, so a fixed distance stands in.
+  // Purely additive: with JS off the bar never appears and every other
+  // download link still works.
+  (function () {
+    var bar = document.querySelector('.sticky-cta');
+    if (!bar) return;
+    var heroCta = document.querySelector('.hero-ctas');
+    function threshold() {
+      return heroCta ? heroCta.offsetTop + heroCta.offsetHeight : 320;
+    }
+    function update() {
+      bar.classList.toggle('is-visible', window.scrollY > threshold());
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
 </main>
 
 <footer>
