@@ -1436,3 +1436,50 @@ footer {
 /* ---------- Footer social links ---------- */
 .foot-social { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; flex-basis: 100%; }
 .foot-social span { color: var(--text-2); }
+
+/* ---------- Phone hero: get the app on the first screen ---------- */
+/* The text column dissolves into the hero grid so the screenshot can sit
+   straight after the download button, ahead of the trust ticks. Before this
+   the first 812px on a phone was text only. */
+@media (max-width: 600px) {
+  .hero { gap: 0; padding: 20px 0 36px; }
+  .hero > div:first-child { display: contents; }
+  .hero-badge { display: none; }
+  .hero h1 { font-size: 2.15rem; margin-bottom: 14px; }
+  .hero p.lead { font-size: 1.02rem; margin-bottom: 20px; }
+  .hero-art { order: 1; margin-top: 22px; }
+  .hero-trust { order: 2; margin-top: 26px; }
+  .hero-art img.app-shot-hero { width: min(230px, 62%); }
+}
+
+/* ---------- App Store reviews ---------- */
+.review-stars { color: var(--orange); letter-spacing: 0.08em; margin-bottom: 10px; font-size: 1.05rem; }
+
+.faq-more { margin-top: 22px; color: var(--text-2); font-weight: 600; }
+
+/* ---------- Phone length trims ---------- */
+@media (max-width: 640px) {
+  /* Three screens one-up cost 2,800px on a phone. Swipe between them instead:
+     the next one peeks in from the right so it reads as scrollable. */
+  .app-gallery-3 {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 74%;
+    max-width: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 8px;
+    margin-top: 28px;
+  }
+  .app-gallery-3 .app-shot { scroll-snap-align: center; }
+
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stats .stat:last-child { grid-column: auto; }
+  .stat { padding: 14px 6px; }
+  .stat .num { font-size: 1.45rem; }
+  .stat .lbl { font-size: 0.68rem; }
+
+  .testimonial { padding: 18px 20px; }
+  .testimonials { gap: 12px; }
+}
