@@ -25,13 +25,16 @@
 
     var href = link.getAttribute('href') || '';
 
-    /* The link to the App Store appears four times on the home page — the nav
-       badge, the hero badge, a text link inside a FAQ answer, and the badge in
-       the closing call to action. Naming them apart is the only way to learn
+    /* The link to the App Store appears several times on the home page — the
+       nav badge, the hero badge, the sticky bar on phones, the mid-page badge,
+       a text link inside a FAQ answer, and the badge in the closing call to
+       action. Naming them apart is the only way to learn
        which one actually does the work. The last two entries are for blocks
        that have no badge today, so a badge added there later names itself. */
     if (href.indexOf('apps.apple.com') !== -1) {
       var where = link.closest('header') ? 'nav'
+                : link.closest('.sticky-cta') ? 'sticky'
+                : link.closest('.mid-cta') ? 'mid'
                 : link.closest('.hero') ? 'hero'
                 : link.closest('#faq') ? 'faq'
                 : link.closest('#cta') ? 'cta'
