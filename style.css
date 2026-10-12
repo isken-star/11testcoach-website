@@ -629,6 +629,35 @@ header {
 
 @media (max-width: 860px) { .testimonials { grid-template-columns: 1fr; } }
 
+/* The founder's own result. Kept visibly apart from the App Store reviews:
+   no stars, green edge, and the caption says who wrote it. */
+.founder-result {
+  margin: 18px 0 0;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--green);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 26px;
+}
+.founder-result-badge { font-size: 2rem; line-height: 1; }
+.founder-result blockquote {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.founder-result figcaption { font-size: 0.85rem; font-weight: 700; color: var(--text-2); }
+.founder-result figcaption a { color: var(--royal); }
+@media (max-width: 640px) {
+  .founder-result { padding: 18px 20px; gap: 12px; margin-top: 12px; }
+  .founder-result blockquote { font-size: 1rem; }
+}
+
 /* ---------- Sections ---------- */
 /* scroll-margin keeps anchor targets clear of the sticky header. */
 section { padding: 56px 0; scroll-margin-top: 150px; }
