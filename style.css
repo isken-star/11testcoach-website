@@ -211,176 +211,6 @@ header {
   .nav-links .store-badge { margin-top: 16px; align-self: center; }
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
-  align-items: center;
-  padding: 72px 0 56px;
-}
-
-.hero h1 {
-  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-  line-height: 1.08;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 20px;
-}
-
-.hero h1 .accent { color: var(--royal); }
-
-.hero p.lead {
-  font-size: 1.15rem;
-  color: var(--text-2);
-  max-width: 34rem;
-  margin-bottom: 28px;
-}
-
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-
-.coming-soon {
-  font-size: 0.85rem;
-  color: var(--text-2);
-  font-weight: 600;
-}
-
-.hero-art { position: relative; text-align: center; }
-
-.hero-art img.taco { width: min(300px, 70%); margin: 0 auto; }
-
-/* The hero used to be the mascot alone. A parent deciding in five seconds
-   needs to see the product, so the child's home screen leads and Taco sits
-   in the corner as an accent. height:auto matters — the width/height attrs
-   otherwise pin the box to the natural 1696px. */
-.hero-art img.app-shot-hero {
-  width: min(280px, 66%);
-  height: auto;
-  margin: 0 auto;
-  border-radius: 26px;
-  border: 1px solid var(--border);
-  box-shadow: 0 18px 50px rgba(13, 41, 107, 0.18);
-}
-
-.hero-art img.taco-mini {
-  position: absolute;
-  width: 108px;
-  height: auto;
-  right: 2%;
-  bottom: -6px;
-  filter: drop-shadow(0 6px 16px rgba(13, 41, 107, 0.18));
-  pointer-events: none;
-}
-
-.cta-note {
-  font-size: 0.9rem;
-  color: var(--text-2);
-  font-weight: 600;
-}
-
-.cta-note b { color: var(--navy); }
-
-@media (max-width: 860px) {
-  .hero-art img.app-shot-hero { width: min(240px, 62%); }
-  .hero-art img.taco-mini { width: 84px; right: 8%; }
-}
-
-.float-card {
-  position: absolute;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 10px 16px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text);
-  white-space: nowrap;
-}
-
-.float-card small { display: block; font-weight: 600; color: var(--text-2); }
-
-.fc-1 { top: 6%; left: 0; }
-.fc-2 { bottom: 18%; right: 0; }
-.fc-3 { bottom: -2%; left: 8%; }
-
-@media (max-width: 860px) {
-  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 48px; }
-  .hero p.lead { margin: 0 auto 28px; }
-  .hero-ctas { justify-content: center; }
-  .fc-1 { left: -4px; }
-  .fc-2 { right: -4px; }
-}
-
-/* ---------- Stats ---------- */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 8px 0 26px;
-}
-
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px 16px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-.stat .num { font-size: 1.9rem; font-weight: 800; color: var(--royal); }
-
-.stat .lbl {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-2);
-}
-
-@media (max-width: 720px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .stats .stat:last-child { grid-column: 1 / -1; }
-}
-
-/* ---------- Hero trust signals ---------- */
-.hero-badge {
-  display: inline-block;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 7px 16px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--navy);
-  box-shadow: var(--shadow);
-  margin-bottom: 18px;
-}
-
-.hero-trust {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  margin-top: 22px;
-  padding: 0;
-}
-
-.hero-trust li {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-2);
-}
-
-.hero-trust li::before {
-  content: "✓ ";
-  color: var(--royal);
-  font-weight: 800;
-}
-
-@media (max-width: 860px) { .hero-trust { justify-content: center; } }
-
 /* ---------- "What's in the app" gallery ---------- */
 .subject-detail {
   display: grid;
@@ -794,56 +624,6 @@ p.section-sub { color: var(--text-2); max-width: 40rem; margin-bottom: 36px; }
   .story-photo { max-width: 340px; margin: 0 auto; }
 }
 
-/* ---------- Steps ---------- */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-
-.step {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 26px 22px;
-  box-shadow: var(--shadow);
-}
-
-.step .n {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--orange);
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
-}
-
-.step h3 { font-size: 1.08rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-
-.step p { font-size: 0.95rem; color: var(--text-2); }
-
-@media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
-
-/* ---------- Subjects strip ---------- */
-.subjects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-
-.subjects-strip { padding: 0 0 8px; }
-
-.subject-icon {
-  display: block;
-  font-size: 1.8rem;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-.subject {
-  border-radius: var(--radius);
-  padding: 20px 16px;
-  color: #fff;
-  font-weight: 800;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-.subject small { display: block; font-weight: 600; opacity: 0.9; font-size: 0.8rem; }
-
-@media (max-width: 720px) { .subjects { grid-template-columns: 1fr 1fr; } }
-
 /* ---------- FAQ ---------- */
 .faq details {
   background: var(--surface);
@@ -854,15 +634,17 @@ p.section-sub { color: var(--text-2); max-width: 40rem; margin-bottom: 36px; }
 }
 
 .faq summary {
+  position: relative;
   font-weight: 800;
   color: var(--navy);
   cursor: pointer;
   list-style: none;
+  padding-right: 28px;
 }
 
 .faq summary::-webkit-details-marker { display: none; }
 
-.faq summary::after { content: "+"; float: right; color: var(--royal); font-weight: 800; }
+.faq summary::after { content: "+"; position: absolute; right: 0; top: 0; color: var(--royal); font-weight: 800; }
 
 .faq details[open] summary::after { content: "–"; }
 
@@ -953,166 +735,6 @@ footer {
 .contact-card b { color: var(--navy); display: block; }
 
 .contact-card span { color: var(--text-2); font-size: 0.92rem; }
-
-/* ---------- Pricing ---------- */
-.trial-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: color-mix(in srgb, var(--orange) 12%, white);
-  border: 1px solid color-mix(in srgb, var(--orange) 40%, white);
-  color: var(--navy);
-  font-weight: 800;
-  border-radius: 999px;
-  padding: 12px 24px;
-  width: fit-content;
-  margin: 0 auto 32px;
-}
-
-/* The Exam Year Pass leads the section: full width, warm border, priced
-   before the two rolling options underneath it. */
-.plan-hero {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px 40px;
-  align-items: start;
-  max-width: 862px;
-  margin: 0 auto 26px;
-  padding: 36px 34px;
-  background: var(--surface);
-  border: 2px solid var(--orange);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-}
-
-.plan-hero .flag {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--orange);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.plan-hero h3 { font-size: 1.6rem; font-weight: 800; color: var(--navy); }
-.plan-hero .who { color: var(--text-2); font-size: 0.97rem; margin: 4px 0 16px; }
-.plan-hero .price-row { display: flex; align-items: baseline; gap: 8px; }
-.plan-hero .price { font-size: 3rem; font-weight: 800; color: var(--navy); line-height: 1; }
-.plan-hero .per { color: var(--text-2); font-weight: 700; }
-
-.plan-hero .hero-pitch {
-  margin-top: 16px;
-  font-size: 1.08rem;
-  color: var(--navy);
-  font-weight: 600;
-}
-
-.plan-hero .hero-sub {
-  margin-top: 10px;
-  font-size: 0.94rem;
-  line-height: 1.6;
-  color: var(--text-2);
-}
-
-.plan-hero-list { list-style: none; padding: 0; margin: 0; }
-
-.plan-hero-list li {
-  padding: 9px 0 9px 30px;
-  position: relative;
-  color: var(--text);
-  font-size: 0.97rem;
-  line-height: 1.5;
-}
-
-.plan-hero-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 4px;
-  color: var(--green);
-  font-weight: 800;
-}
-
-.plan-hero-list b { color: var(--navy); }
-
-@media (max-width: 860px) {
-  .plan-hero { grid-template-columns: 1fr; gap: 20px; padding: 32px 24px; }
-}
-
-.plans {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 420px));
-  justify-content: center;
-  gap: 22px;
-}
-
-.plan {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: 30px 28px;
-  position: relative;
-}
-
-.plan.family { border: 2px solid var(--royal); }
-
-.plan .flag {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--royal);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.plan h3 { font-size: 1.25rem; font-weight: 800; color: var(--navy); }
-
-.plan .who { color: var(--text-2); font-size: 0.95rem; margin: 4px 0 18px; }
-
-.plan .price-row { display: flex; align-items: baseline; gap: 8px; }
-
-.plan .price { font-size: 2.3rem; font-weight: 800; color: var(--navy); }
-
-.plan .per { color: var(--text-2); font-weight: 600; }
-
-.plan .yearly {
-  margin-top: 6px;
-  padding: 10px 14px;
-  background: color-mix(in srgb, var(--green) 10%, white);
-  border: 1px solid color-mix(in srgb, var(--green) 35%, white);
-  border-radius: 12px;
-  font-size: 0.95rem;
-  color: var(--text);
-  font-weight: 600;
-}
-
-.plan .yearly b { color: var(--green); }
-
-.plan ul { list-style: none; margin: 20px 0 0; }
-
-.plan li { padding: 7px 0 7px 30px; position: relative; color: var(--text); font-size: 0.97rem; }
-
-.plan li::before { content: "✓"; position: absolute; left: 4px; color: var(--green); font-weight: 800; }
-
-.pricing-note { text-align: center; color: var(--text-2); font-size: 0.85rem; margin-top: 22px; }
-
-@media (max-width: 780px) { .plans { grid-template-columns: 1fr; } }
 
 /* ---------- Guide ---------- */
 .guide-hero { text-align: center; padding: 64px 0 28px; }
@@ -1280,70 +902,9 @@ footer {
 }
 
 
-/* The pricing hero is where intent peaks; it had no way to act on it. */
-.plan-hero-cta {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-
-/* ---------- Section teasers ---------- */
-/* The Taco explainer and the four per-subject deep-dives moved to /taco/ and
-   /subjects/. What stays is the claim plus a way through, so the homepage
-   keeps the thread without carrying 8,000px of reference material. */
-.teaser { padding: 30px 0; }
-
-.teaser-inner {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 32px;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: 30px 34px;
-}
-
-.teaser-inner img { width: 100%; height: auto; }
-.teaser-inner .section-title { margin-bottom: 12px; }
-.teaser-inner p { color: var(--text-2); margin-bottom: 14px; }
-.teaser-inner p:last-child { margin-bottom: 0; }
-
+/* ---------- Content page heading ---------- */
 .page-head { padding-top: 40px; }
 .page-head h1.section-title { margin-bottom: 14px; }
-
-@media (max-width: 720px) {
-  .teaser-inner { grid-template-columns: 1fr; text-align: center; padding: 26px 22px; gap: 18px; }
-  .teaser-inner img { width: 120px; margin: 0 auto; }
-}
-
-
-/* ---------- Hero social proof ---------- */
-/* Flow as one sentence, not as flex items. As a flex row the long half could
-   not share a line with the stars on a phone, so it wrapped underneath and
-   left the stars stranded on a line of their own. Inline text wraps at a word
-   boundary instead, and the stars stay attached to the score. */
-.hero-proof {
-  margin-top: 16px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--text-2);
-}
-
-.hero-proof .stars {
-  color: var(--orange);
-  letter-spacing: 0.06em;
-  margin-right: 7px;
-  white-space: nowrap;
-}
-.hero-proof b { color: var(--navy); }
-
-.hero-note { margin-top: 8px; display: block; }
 
 /* ---------- Sticky download bar (phones) ---------- */
 /* Hidden by default and on anything wider than a phone. It is revealed only
@@ -1425,61 +986,9 @@ footer {
   .sticky-cta { transition: none; }
 }
 
-/* ---------- Latest-update strip (under the hero) ---------- */
-.update-strip {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 4px 0 22px;
-  padding: 14px 18px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 5px solid var(--green);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-.update-strip:hover { border-color: var(--royal); border-left-color: var(--green); }
-.update-tag {
-  flex: none;
-  background: var(--green);
-  color: #fff;
-  font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  padding: 4px 10px;
-}
-.update-text b { color: var(--navy); }
-.update-arrow { flex: none; color: var(--royal); font-weight: 800; }
-@media (max-width: 600px) {
-  .update-strip { flex-wrap: wrap; gap: 8px 10px; }
-  .update-text { flex: 1 1 100%; order: 2; }
-  .update-arrow { display: none; }
-}
-
 /* ---------- Footer social links ---------- */
 .foot-social { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; flex-basis: 100%; }
 .foot-social span { color: var(--text-2); }
-
-/* ---------- Phone hero: get the app on the first screen ---------- */
-/* The text column dissolves into the hero grid so the screenshot can sit
-   straight after the download button, ahead of the trust ticks. Before this
-   the first 812px on a phone was text only. */
-@media (max-width: 600px) {
-  .hero { gap: 0; padding: 20px 0 36px; }
-  .hero > div:first-child { display: contents; }
-  .hero-badge { display: none; }
-  .hero h1 { font-size: 2.15rem; margin-bottom: 14px; }
-  .hero p.lead { font-size: 1.02rem; margin-bottom: 20px; }
-  .hero-art { order: 1; margin-top: 22px; }
-  .hero-trust { order: 2; margin-top: 26px; }
-  .hero-art img.app-shot-hero { width: min(230px, 62%); }
-}
 
 /* ---------- App Store reviews ---------- */
 .review-stars { color: var(--orange); letter-spacing: 0.08em; margin-bottom: 10px; font-size: 1.05rem; }
@@ -1503,12 +1012,397 @@ footer {
   }
   .app-gallery-3 .app-shot { scroll-snap-align: center; }
 
-  .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .stats .stat:last-child { grid-column: auto; }
-  .stat { padding: 14px 6px; }
-  .stat .num { font-size: 1.45rem; }
-  .stat .lbl { font-size: 0.68rem; }
-
   .testimonial { padding: 18px 20px; }
   .testimonials { gap: 12px; }
 }
+
+/* =====================================================================
+   Homepage (October 2026 redesign)
+   One story top to bottom: it teaches, they practise, you see it.
+   Everything here is scoped to .hm-* classes so the content pages are
+   untouched; .hero stays on the hero only because analytics.js names
+   hero clicks by it.
+   ===================================================================== */
+
+/* Shared phone frame for every screenshot on the page. height:auto matters:
+   the width/height attributes otherwise pin the image to its natural size. */
+.hm-phone {
+  margin: 0;
+  border: 5px solid var(--navy);
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 18px 44px rgba(13, 41, 107, 0.16);
+}
+.hm-phone img { width: 100%; height: auto; display: block; }
+
+/* ---------- Hero ---------- */
+.hm-hero {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 48px;
+  align-items: center;
+  padding: 64px 0 40px;
+}
+
+.hm-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 14px;
+}
+
+.hm-hero h1 {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  line-height: 1.06;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.hm-hero h1 .accent { display: block; color: var(--royal); }
+
+.hm-lead {
+  font-size: 1.15rem;
+  color: var(--text-2);
+  max-width: 33rem;
+  margin-bottom: 28px;
+}
+
+.hm-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+
+/* The one primary action. Royal on white text is 4.6:1 at 800 weight. */
+.hm-get {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--royal);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(26, 115, 240, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hm-get:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(26, 115, 240, 0.38); }
+.hm-get:focus-visible, .hm-link:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+.hm-badge img { height: 44px; width: auto; }
+
+.hm-small {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.hm-stars { color: #D97706; letter-spacing: 0.04em; }
+
+/* Two real screens: the lesson behind, Home in front. */
+.hm-hero-art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 0 48px;
+}
+.hm-hero-art .hm-phone { width: 46%; max-width: 250px; }
+.hm-phone-back { transform: rotate(-4deg); margin-right: -5%; position: relative; z-index: 1; }
+.hm-phone-front { transform: rotate(3deg) translateY(44px); position: relative; z-index: 2; }
+.hm-hero-taco {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 104px;
+  height: auto;
+  z-index: 3;
+  filter: drop-shadow(0 6px 14px rgba(13, 41, 107, 0.18));
+  pointer-events: none;
+}
+
+/* ---------- How it works ---------- */
+.hm-how .section-sub { margin-bottom: 32px; }
+
+.hm-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.hm-step-shot { margin: 0 auto 20px; max-width: 230px; }
+.hm-step-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 5px solid var(--navy);
+  border-radius: 28px;
+  box-shadow: 0 14px 34px rgba(13, 41, 107, 0.14);
+}
+
+.hm-step-n {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--c);
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.hm-step h3 { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.hm-step p { color: var(--text-2); font-size: 0.98rem; }
+
+/* ---------- Mid-page call to action ---------- */
+.hm-mid { background: #FFF8EE; border-color: #F2DCBC; }
+
+/* ---------- Subjects ---------- */
+.hm-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.hm-subject {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px 20px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--c) 22%, white);
+  border-top: 5px solid var(--c);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.15s ease;
+}
+.hm-subject:hover { transform: translateY(-2px); }
+.hm-subject-name { font-size: 1.1rem; font-weight: 800; color: var(--navy); line-height: 1.25; }
+.hm-subject-count {
+  align-self: flex-start;
+  background: var(--c);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.hm-subject-topics { font-size: 0.88rem; color: var(--text-2); line-height: 1.45; }
+
+.hm-also {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 28px;
+}
+.hm-also li, .hm-ticks li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-2);
+  font-size: 0.97rem;
+}
+.hm-also li::before, .hm-ticks li::before {
+  content: "✓";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  color: var(--green);
+  font-weight: 800;
+}
+.hm-also b, .hm-ticks b { color: var(--navy); }
+
+.hm-more { margin-top: 22px; font-weight: 700; }
+.hm-more a, .hm-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--royal);
+  font-weight: 800;
+  text-decoration: none;
+}
+.hm-more a:hover, .hm-link:hover { text-decoration: underline; }
+
+/* ---------- Two-column blocks (Parent Mode, Taco) ---------- */
+.hm-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.hm-split-flip { grid-template-columns: 0.8fr 1.2fr; }
+.hm-split .section-sub { margin-bottom: 20px; }
+
+.hm-ticks { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 10px; }
+
+.hm-pair { display: flex; justify-content: center; gap: 18px; }
+.hm-pair .hm-phone { width: 46%; max-width: 230px; }
+.hm-phone-low { margin-top: 48px; }
+.hm-phone-single { max-width: 250px; margin: 0 auto; }
+
+/* ---------- Reviews ---------- */
+.hm-founder { margin: 0 0 18px; }
+.hm-quotes .testimonial blockquote { font-size: 1.05rem; }
+
+/* ---------- Pricing ---------- */
+.hm-free {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 28px;
+  align-items: center;
+  background: #FFF8EE;
+  border: 2px solid #F2C98F;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-top: 8px;
+}
+.hm-free > img { width: 110px; height: auto; }
+.hm-free-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+.hm-free h3 { font-size: 1.6rem; font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 8px; }
+.hm-free-copy p { color: var(--text); }
+.hm-free-copy b { color: var(--navy); }
+
+.hm-then { margin: 34px 0 16px; color: var(--text-2); font-weight: 600; max-width: 44rem; }
+
+.hm-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.hm-plan {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 22px 24px;
+}
+.hm-plan-family { border: 2px solid var(--royal); }
+.hm-plan h3 { font-size: 1.15rem; font-weight: 800; color: var(--navy); }
+.hm-plan-who { color: var(--text-2); font-size: 0.92rem; margin-bottom: 10px; }
+.hm-price { font-size: 2rem; font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 10px; }
+.hm-price span { font-size: 0.95rem; font-weight: 700; color: var(--text-2); }
+.hm-plan-note { font-size: 0.93rem; color: var(--text-2); }
+
+/* ---------- Privacy ---------- */
+.hm-private { padding: 24px 0; }
+.hm-private-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 24px 30px;
+}
+.hm-private-inner img { width: 80px; height: auto; flex: none; }
+.hm-private-inner h2 { font-size: 1.45rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.hm-private-inner p { color: var(--text-2); }
+.hm-private-inner a { color: var(--royal); font-weight: 700; }
+
+/* ---------- Story ---------- */
+.hm-story-more { margin-bottom: 14px; }
+.hm-story-more summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--royal);
+  font-weight: 800;
+  list-style: none;
+}
+.hm-story-more summary::-webkit-details-marker { display: none; }
+.hm-story-more summary::after { content: " ↓"; white-space: pre; }
+.hm-story-more[open] summary { display: none; }
+
+/* ---------- Closing CTA ---------- */
+.hm-cta > img { width: 110px; height: auto; }
+.cta .store-badge img { width: auto; height: 52px; margin: 0 auto; }
+
+.pricing-note { text-align: center; color: var(--text-2); font-size: 0.85rem; margin-top: 22px; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 860px) {
+  .hm-hero { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 24px; text-align: center; }
+  .hm-lead { margin-left: auto; margin-right: auto; }
+  .hm-ctas { justify-content: center; }
+  .hm-hero-art { max-width: 480px; margin: 0 auto; width: 100%; }
+  .hm-subject-grid { grid-template-columns: 1fr 1fr; }
+  .hm-split, .hm-split-flip { grid-template-columns: 1fr; gap: 28px; }
+  .hm-split-flip .hm-split-art { order: 2; }
+  .hm-free { grid-template-columns: 90px 1fr; }
+  .hm-free > img { width: 90px; }
+  .hm-free-cta { grid-column: 1 / -1; }
+  .hm-plans { grid-template-columns: 1fr; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 640px) {
+  .home section { padding: 34px 0; }
+  .hm-hero { padding: 18px 0 4px; gap: 20px; }
+  .hm-eyebrow { font-size: 0.72rem; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .hm-eyebrow-long { display: none; }
+  .hm-hero h1 { font-size: 2rem; margin-bottom: 12px; }
+  .hm-lead { font-size: 0.98rem; line-height: 1.55; margin-bottom: 18px; }
+  .hm-ctas { flex-direction: column; gap: 8px; }
+  .hm-get { width: 100%; min-height: 54px; font-size: 0.98rem; padding: 12px 14px; letter-spacing: -0.005em; }
+  .hm-badge img { height: 40px; }
+  .hm-small { margin-top: 10px; font-size: 0.8rem; }
+  .story-photo { max-width: 230px; }
+  .story { gap: 18px; }
+  .hm-cta { padding: 32px 20px; }
+  .hm-cta > img { width: 84px; margin-bottom: 10px; }
+  .hm-hero-art { padding-bottom: 40px; }
+  .hm-hero-art .hm-phone { border-width: 4px; border-radius: 22px; }
+  .hm-hero-taco { width: 74px; left: -4px; }
+
+  /* Each step as a row: screen on the left, words on the right. Three
+     full-width screens cost ~1,800px here; this is about half that. */
+  .hm-steps { grid-template-columns: 1fr; gap: 26px; }
+  .hm-step { display: grid; grid-template-columns: 42% 1fr; gap: 16px; align-items: center; }
+  .hm-step-shot { margin: 0; max-width: none; }
+  .hm-step-shot img { border-width: 4px; border-radius: 20px; }
+  .hm-step h3 { font-size: 1.12rem; }
+  .hm-step p { font-size: 0.9rem; line-height: 1.5; }
+  .hm-step-n { width: 30px; height: 30px; margin-bottom: 4px; }
+
+  .hm-subject { padding: 14px 14px 16px; }
+  .hm-subject-name { font-size: 1rem; }
+  .hm-subject-topics { font-size: 0.82rem; }
+  .hm-also { grid-template-columns: 1fr; }
+
+  .hm-pair { gap: 12px; }
+  .hm-pair .hm-phone, .hm-phone-single { border-width: 4px; border-radius: 22px; }
+  .hm-phone-low { margin-top: 32px; }
+  .hm-phone-single { max-width: 210px; }
+
+  .hm-free { grid-template-columns: 1fr; text-align: center; padding: 24px 20px; gap: 14px; }
+  .hm-free > img { width: 76px; margin: 0 auto; }
+  .hm-free h3 { font-size: 1.35rem; }
+  .hm-free-copy p { text-align: left; }
+  .hm-then { margin-top: 26px; }
+  .hm-price { font-size: 1.75rem; }
+
+  .hm-private-inner { padding: 18px 18px; gap: 14px; }
+  .hm-private-inner img { width: 56px; }
+  .hm-private-inner h2 { font-size: 1.15rem; }
+  .hm-private-inner p { font-size: 0.92rem; }
+}
+
+.nw { white-space: nowrap; }
