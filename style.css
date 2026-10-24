@@ -904,7 +904,7 @@ footer {
 
 /* ---------- Content page heading ---------- */
 .page-head { padding-top: 40px; }
-.page-head h1.section-title { margin-bottom: 14px; }
+.page-head h1.section-title { margin-bottom: 14px; font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-weight: 800; color: var(--navy); line-height: 1.12; }
 
 /* ---------- Sticky download bar (phones) ---------- */
 /* Hidden by default and on anything wider than a phone. It is revealed only
@@ -1406,3 +1406,24 @@ footer {
 }
 
 .nw { white-space: nowrap; }
+
+/* ---------- Subjects page: a lesson and a question per subject ---------- */
+.subj { padding: 36px 0; }
+.subj .subject-detail { margin-top: 0; grid-template-columns: 440px 1fr; }
+.subj .subject-detail.flip { grid-template-columns: 1fr 440px; }
+.subj-pair { gap: 14px; }
+.subj-pair .shot, .subj-single .shot { border-width: 5px; border-radius: 26px; }
+.subj-pair .shot:last-child { margin-top: 36px; }
+.subj-single { max-width: 260px; }
+.subj-more .section-title { margin-bottom: 26px; }
+@media (max-width: 860px) {
+  .subj .subject-detail, .subj .subject-detail.flip { grid-template-columns: 1fr; }
+  .subj .subject-detail aside { max-width: 420px; }
+  .subj-single { max-width: 240px !important; }
+}
+@media (max-width: 640px) {
+  .subj { padding: 26px 0; }
+  .subj-pair { gap: 10px; }
+  .subj-pair .shot, .subj-single .shot { border-width: 4px; border-radius: 20px; }
+  .subj-pair .shot:last-child { margin-top: 24px; }
+}
