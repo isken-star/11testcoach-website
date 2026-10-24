@@ -1250,7 +1250,7 @@ footer {
 .hm-phone-single { max-width: 250px; margin: 0 auto; }
 
 /* ---------- Reviews ---------- */
-.hm-founder { margin: 0 0 18px; }
+.hm-founder { margin: 18px 0 0; }
 .hm-quotes .testimonial blockquote { font-size: 1.05rem; }
 
 /* ---------- Pricing ---------- */
