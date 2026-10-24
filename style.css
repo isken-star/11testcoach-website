@@ -1095,6 +1095,19 @@ footer {
 
 .hm-badge img { height: 44px; width: auto; }
 
+.hm-proof {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--green, #22a559);
+  background: rgba(34, 165, 89, 0.07);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--navy);
+  max-width: 34rem;
+}
+.hm-proof a { font-weight: 700; white-space: nowrap; }
+.hm-proof > span { margin-right: 6px; }
 .hm-small {
   margin-top: 16px;
   font-size: 0.9rem;
@@ -1340,7 +1353,8 @@ footer {
 /* ---------- Tablet ---------- */
 @media (max-width: 860px) {
   .hm-hero { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 24px; text-align: center; }
-  .hm-lead { margin-left: auto; margin-right: auto; }
+  .hm-lead, .hm-proof { margin-left: auto; margin-right: auto; }
+  .hm-proof { text-align: left; }
   .hm-ctas { justify-content: center; }
   .hm-hero-art { max-width: 480px; margin: 0 auto; width: 100%; }
   .hm-subject-grid { grid-template-columns: 1fr 1fr; }
