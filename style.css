@@ -1429,3 +1429,9 @@ footer {
 }
 .taco-corner-block { margin-top: 48px; grid-template-columns: 260px 1fr; }
 @media (max-width: 860px) { .taco-corner-block { grid-template-columns: 1fr; } .taco-corner-block aside { max-width: 240px; margin: 0 auto; } }
+
+/* Footer links are tap targets too: give them 44px of height on phones. */
+@media (max-width: 720px) {
+  .foot nav { gap: 0 18px; }
+  .foot a { display: inline-flex; align-items: center; min-height: 44px; }
+}
