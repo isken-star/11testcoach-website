@@ -1295,6 +1295,11 @@ footer {
 .hm-free-copy p { color: var(--text); }
 .hm-free-copy b { color: var(--navy); }
 
+/* The free plan after the day: a real Daily 5 screenshot in place of Taco. */
+.hm-free-daily { grid-template-columns: 120px 1fr; background: #EEF5FF; border-color: #A9C8F5; margin-top: 16px; }
+.hm-free-daily .hm-free-tag { background: var(--royal); color: #fff; }
+.hm-free > img.hm-free-shot { width: 120px; border-radius: 16px; border: 4px solid #0E1A33; box-shadow: var(--shadow); }
+
 .hm-then { margin: 34px 0 16px; color: var(--text-2); font-weight: 600; max-width: 44rem; }
 
 .hm-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -1362,6 +1367,8 @@ footer {
   .hm-split-flip .hm-split-art { order: 2; }
   .hm-free { grid-template-columns: 90px 1fr; }
   .hm-free > img { width: 90px; }
+  .hm-free-daily { grid-template-columns: 100px 1fr; }
+  .hm-free > img.hm-free-shot { width: 100px; }
   .hm-free-cta { grid-column: 1 / -1; }
   .hm-plans { grid-template-columns: 1fr; }
 }
