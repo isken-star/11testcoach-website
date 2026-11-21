@@ -23,200 +23,62 @@
 <script src="https://cdn.usefathom.com/script.js" data-site="IPBQOBWB" defer></script>
 <script src="/analytics.js" defer></script>
 <style>
-  /* Everything here serves one job: get the parent to the App Store.
-     One link target everywhere, no full nav, the home page one small link away. */
-  .get-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
-  .get-head .logo { font-size: 1.05rem; }
-  .get-about { font-size: 0.92rem; font-weight: 700; color: var(--royal); text-decoration: none; white-space: nowrap; }
-  .get-about:hover { text-decoration: underline; }
+  /* One job: someone tapped an Instagram/Facebook video and wants the app.
+     The first screen on a phone is the app, one big App Store button and the
+     price, with nothing to scroll or read first. (The long version lost ~90%
+     of visitors in a few seconds, 18–21 Nov 2026.) Everything that looks like
+     the app is a link to the App Store. */
+  body.get-page { background: var(--bg, #F7FAFF); }
+  .get { max-width: 460px; margin: 0 auto; padding: 18px 16px 28px; text-align: center; }
 
-  .get-hero { text-align: center; padding: 18px 0 8px; max-width: 620px; margin: 0 auto; }
-  .get-icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: var(--shadow); display: block; margin: 0 auto 14px; }
-  .get-app-name { margin: 0; font-weight: 800; color: var(--navy); font-size: 1rem; }
-  .get-app-sub { margin: 2px 0 18px; font-size: 0.9rem; color: #5E6E87; }
-  .get-hero h1 { font-size: clamp(1.9rem, 6.4vw, 2.9rem); line-height: 1.08; margin: 0 0 12px; color: var(--navy); }
-  .get-hero h1 .accent { color: var(--royal); }
-  .get-lead { font-size: 1.08rem; line-height: 1.5; color: var(--text); margin: 0 auto 22px; max-width: 34em; }
-  .get-ctas { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .get-ctas .hm-get { width: 100%; max-width: 420px; font-size: 1.15rem; min-height: 62px; }
-  .get-free { margin: 12px 0 0; font-size: 0.95rem; color: var(--navy); font-weight: 700; }
-  .get-meta { margin: 6px 0 0; font-size: 0.9rem; color: #5E6E87; }
-  .get-meta .hm-stars { color: #F2A516; letter-spacing: 1px; }
+  .get-app { display: flex; align-items: center; gap: 14px; text-align: left; text-decoration: none; color: inherit; margin: 0 auto 16px; max-width: 360px; }
+  .get-app img { width: 72px; height: 72px; border-radius: 17px; box-shadow: var(--shadow); flex: none; }
+  .get-app b { display: block; color: var(--navy); font-size: 1.08rem; line-height: 1.2; }
+  .get-app small { display: block; color: #5E6E87; font-size: 0.86rem; line-height: 1.35; }
+  .get-app .stars { color: #F2A516; letter-spacing: 1px; }
 
-  .get-section { padding: 34px 0 6px; }
-  .get-section h2 { text-align: center; font-size: clamp(1.45rem, 4.6vw, 2rem); color: var(--navy); margin: 0 0 6px; }
-  .get-section .get-sub { text-align: center; margin: 0 auto 18px; color: #5E6E87; max-width: 34em; }
+  .get h1 { font-size: clamp(1.6rem, 7vw, 2.1rem); line-height: 1.12; color: var(--navy); margin: 0 0 16px; }
+  .get h1 .accent { color: var(--royal); }
 
-  /* Swipeable strip of real screens. Scrolls inside itself, never the page. */
-  .get-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 230px); gap: 16px;
-    overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 14px; margin: 0 -4px;
-    -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
-  .get-shot { scroll-snap-align: start; margin: 0; }
-  .get-shot .frame { border: 6px solid var(--navy); border-radius: 30px; overflow: hidden; background: var(--navy); box-shadow: var(--shadow); }
+  /* Apple's own badge, big: the thing people expect after tapping "Learn more". */
+  .get-badge { display: block; margin: 0 auto; width: 100%; max-width: 300px; }
+  .get-badge img { display: block; width: 100%; height: auto; }
+  .get-free { margin: 12px 0 0; font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .get-free small { display: block; font-weight: 600; font-size: 0.86rem; color: #5E6E87; margin-top: 2px; }
+
+  .get section, .get .hero { padding: 0; margin: 0; min-height: 0; }
+  .get-shot { display: block; margin: 22px auto 0; max-width: 250px; border: 6px solid var(--navy); border-radius: 32px; overflow: hidden; background: var(--navy); box-shadow: var(--shadow); }
   .get-shot img { display: block; width: 100%; height: auto; }
-  .get-shot figcaption { margin-top: 10px; font-size: 0.92rem; line-height: 1.4; color: var(--text); }
-  .get-shot figcaption b { display: block; color: var(--navy); font-size: 0.98rem; }
-  .get-swipe { text-align: center; font-size: 0.85rem; color: #5E6E87; margin: 0; }
-  @media (min-width: 1000px) { .get-strip { grid-auto-flow: row; grid-template-columns: repeat(6, 1fr); overflow: visible; } .get-swipe { display: none; } }
+  .get-cap { margin: 10px 0 0; font-size: 0.92rem; color: var(--text); }
 
-  .get-points { list-style: none; padding: 0; margin: 0 auto; max-width: 640px; display: grid; gap: 12px; }
-  .get-points li { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
-  .get-points .ico { font-size: 1.5rem; line-height: 1; flex: none; }
-  .get-points b { color: var(--navy); }
-
-  .get-freebox { max-width: 640px; margin: 0 auto; background: linear-gradient(135deg, #FFF5E6, #FFE9F1); border-radius: var(--radius-lg); padding: 22px; text-align: center; }
-  .get-freebox h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.3rem; }
-  .get-freebox p { margin: 0 0 16px; }
-
-  .get-quotes { display: grid; gap: 12px; max-width: 640px; margin: 0 auto; }
-  @media (min-width: 760px) { .get-quotes { grid-template-columns: repeat(3, 1fr); } }
-  .get-quotes figure { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
-  .get-quotes blockquote { margin: 6px 0; font-weight: 700; color: var(--navy); }
-  .get-quotes figcaption { font-size: 0.85rem; color: #5E6E87; }
-  .get-quotes .review-stars { color: #F2A516; }
-  .get-taira { max-width: 640px; margin: 12px auto 0; font-size: 0.95rem; color: var(--navy); background: rgba(34,165,89,0.07); border-left: 3px solid var(--green); border-radius: 10px; padding: 10px 14px; }
-
-  .get-final { text-align: center; padding: 38px 0 30px; }
-  .get-final img.taco { width: 110px; height: auto; }
-  .get-final h2 { color: var(--navy); margin: 6px 0 8px; font-size: clamp(1.5rem, 5vw, 2.1rem); }
-  .get-final p { margin: 0 auto 18px; max-width: 30em; }
-  .get-home { margin: 22px 0 0; font-size: 0.95rem; }
-  .get-home a { color: var(--royal); font-weight: 700; }
-  body.get-page { padding-bottom: 84px; }
+  .get-foot { margin: 26px 0 0; font-size: 0.85rem; color: #5E6E87; }
+  .get-foot a { color: var(--royal); font-weight: 700; }
 </style>
 </head>
-<body class="home get-page">
+<body class="get-page">
 
-<header>
-  <div class="wrap get-head">
-    <a class="logo" href="/"><img src="/assets/taco-wave-sm.webp" alt="" width="34" height="45">11+ Test Coach</a>
-    <a class="get-about" href="/">About the app →</a>
-  </div>
-</header>
+<main class="get">
 
-<main>
-  <div class="wrap">
+  <div class="hero">
+    <a class="get-app" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8">
+      <img src="/assets/app-icon-240.png" alt="" width="72" height="72" fetchpriority="high">
+      <span><b>11 Plus Test Coach</b><small>Maths, English, verbal + non-verbal reasoning</small><small><span class="stars" aria-hidden="true">★★★★★</span> 5.0 · iPhone &amp; iPad</small></span>
+    </a>
 
-    <div class="hero get-hero">
-      <img class="get-icon" src="/assets/app-icon-240.png" alt="The 11+ Test Coach app icon: Taco the hamster in a graduation cap" width="96" height="96" fetchpriority="high">
-      <p class="get-app-name">11 Plus Test Coach</p>
-      <p class="get-app-sub">Maths, English, verbal + non-verbal reasoning</p>
-      <h1>Ten minutes of 11+ practice a day. <span class="accent">Taught first, then practised.</span></h1>
-      <p class="get-lead">Short picture lessons, real exam-style questions and a friendly hamster coach who gives hints, never just the answer. You see exactly how they're doing.</p>
-      <div class="hero-ctas get-ctas">
-        <a class="hm-get" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8">Download free on the App Store</a>
-        <a class="store-badge hm-badge" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8"><img src="/assets/app-store-badge.svg" alt="Download on the App Store" width="132" height="44"></a>
-      </div>
-      <p class="get-free">Everything free for 24 hours, then 5 free questions every day. No card.</p>
-      <p class="get-meta"><span class="nw"><span class="hm-stars" aria-hidden="true">★★★★★</span> 5.0 on the App Store</span> · <span class="nw">iPhone &amp; iPad</span> · <span class="nw">No ads, no account</span></p>
-    </div>
+    <h1>Ten minutes of 11+ practice a day, <span class="accent">with Taco.</span></h1>
 
-    <section class="get-section" id="app">
-      <h2>See what your child gets.</h2>
-      <p class="get-sub">Real screens from the app, not mock-ups.</p>
-      <div class="get-strip" tabindex="0" aria-label="App screenshots, scroll sideways for more">
-        <figure class="get-shot">
-          <div class="frame"><img src="/assets/screens/app-lesson-fractions-sm.jpg" alt="A Learn it lesson, Fractions of amounts: a bar model of 24 split into four parts of 6, showing three quarters of 24 is 18" width="460" height="1000" loading="lazy"></div>
-          <figcaption><b>Learn it first</b>114 five-minute picture lessons with worked examples.</figcaption>
-        </figure>
-        <figure class="get-shot">
-          <div class="frame"><img src="/assets/screens/app-question-maths-sm.jpg" alt="A maths question about a mean age: a fifth child joins and the mean rises by 3, how old are they, with five answers" width="460" height="1000" loading="lazy"></div>
-          <figcaption><b>Exam-style questions</b>13,000+ across all four 11+ subjects, matched to their level.</figcaption>
-        </figure>
-        <figure class="get-shot">
-          <div class="frame"><img src="/assets/screens/app-taco-hint-sm.jpg" alt="Taco's hint open on a maths question: if you know the mean and how many values there are, multiply them to find the total" width="460" height="1000" loading="lazy"></div>
-          <figcaption><b>Stuck? Taco helps</b>A hint, then another, never just the answer.</figcaption>
-        </figure>
-        <figure class="get-shot">
-          <div class="frame"><img src="/assets/screens/app-question-nvr-sm.jpg" alt="A non-verbal reasoning question on rotations: which option shows the figure turned 180 degrees, with drawn shape answers" width="460" height="1000" loading="lazy"></div>
-          <figcaption><b>Verbal &amp; non-verbal too</b>Every reasoning question type, with clear diagrams.</figcaption>
-        </figure>
-        <figure class="get-shot">
-          <div class="frame"><img src="/assets/screens/app-parent-overview-sm.jpg" alt="Parent Overview: How is Casey doing, 80% overall, strongest Verbal 91%, needs attention Non-Verbal 67%, with areas to focus on" width="460" height="1000" loading="lazy"></div>
-          <figcaption><b>You see everything</b>Strongest and weakest topics, and one tap to set practice.</figcaption>
-        </figure>
-        <figure class="get-shot">
-          <div class="frame"><img src="/assets/screens/app-taco-corner-sm.jpg" alt="Taco's Corner: Taco's cage with upgrades unlocked by the XP your child earns" width="460" height="1000" loading="lazy"></div>
-          <figcaption><b>They want to come back</b>XP, streaks and Taco's cage to build up.</figcaption>
-        </figure>
-      </div>
-      <p class="get-swipe">Swipe for more →</p>
-    </section>
-
-    <section class="get-section">
-      <h2>Why parents choose it.</h2>
-      <ul class="get-points">
-        <li><span class="ico" aria-hidden="true">⏱️</span><span><b>Ten minutes a day.</b> A daily plan mixes a lesson, practice and a revisit, so you don't have to plan anything.</span></li>
-        <li><span class="ico" aria-hidden="true">🎯</span><span><b>Finds their weak spots.</b> A starting check sets their level in every topic, and wrong answers come back until they're beaten.</span></li>
-        <li><span class="ico" aria-hidden="true">📝</span><span><b>Feels like the real exam.</b> Timed mock tests, a working-out notepad, and every answer explained afterwards.</span></li>
-        <li><span class="ico" aria-hidden="true">🔒</span><span><b>Safe for children.</b> No ads, no chat, no account and no tracking.</span></li>
-      </ul>
-    </section>
-
-    <section class="get-section">
-      <div class="get-freebox">
-        <h3>Try it free tonight</h3>
-        <p>Everything is open for 24 hours. After that, Taco's Daily 5 stays free: five questions a day on their weakest topic. Upgrade only if it's working for you.</p>
-        <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8"><img src="/assets/app-store-badge.svg" alt="Download on the App Store" width="156" height="52"></a>
-      </div>
-    </section>
-
-    <section class="get-section">
-      <h2>Rated 5.0 by families.</h2>
-      <div class="get-quotes">
-        <figure><div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Excellent app for young learners! I highly recommend.”</blockquote><figcaption>kany1995 · App Store review</figcaption></figure>
-        <figure><div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The best app, very helpful.”</blockquote><figcaption>ярен · App Store review</figcaption></figure>
-        <figure><div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Great app!”</blockquote><figcaption>Cjjconway · App Store review</figcaption></figure>
-      </div>
-      <p class="get-taira"><span aria-hidden="true">🎉</span> Built by a parent: our daughter Taira practised on it right up to exam day, and passed her 11+.</p>
-    </section>
-
-    <section id="cta" class="get-final">
-      <img class="taco" src="/assets/taco-wave-sm.webp" alt="Taco the hamster waving" width="110" height="146" loading="lazy">
-      <h2>Taco is ready when you are.</h2>
-      <p>Download now, do the short setup together, and your child can try their first question tonight.</p>
-      <div class="get-ctas">
-        <a class="hm-get" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8">Download free on the App Store</a>
-      </div>
-      <p class="get-home">Want to know more first? <a href="/">Visit our homepage</a></p>
-    </section>
-
+    <a class="get-badge" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8"><img src="/assets/app-store-badge.svg" alt="Download on the App Store" width="300" height="100"></a>
+    <p class="get-free">Free for 24 hours, then 5 free questions a day<small>No card, no account, no ads</small></p>
   </div>
 
-<a class="sticky-cta" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8" aria-label="Download on the App Store: free for 24 hours, then five free questions a day">
-  <img class="sticky-cta-taco" src="/assets/taco-wave-sm.webp" alt="" aria-hidden="true" width="46" height="61">
-  <span class="sticky-cta-text"><b>Free for 24 hours</b><small>Then 5 free a day · no card</small></span>
-  <span class="sticky-cta-go">Download</span>
-</a>
+  <section id="app">
+    <a class="get-shot" href="https://apps.apple.com/app/apple-store/id6782715811?pt=128520847&amp;ct=meta_get&amp;mt=8"><img src="/assets/screens/app-taco-hint-sm.jpg" alt="The app: Taco gives a hint on a maths question, never just the answer" width="460" height="1000"></a>
+    <p class="get-cap">Stuck? Taco gives a hint, never just the answer.</p>
+  </section>
 
-<script>
-  // Same rule as the home page: the bar appears once the hero button has scrolled away.
-  (function () {
-    var bar = document.querySelector('.sticky-cta');
-    if (!bar) return;
-    var heroCta = document.querySelector('.hero-ctas');
-    function update() {
-      bar.classList.toggle('is-visible', window.scrollY > (heroCta ? heroCta.offsetTop + heroCta.offsetHeight : 320));
-    }
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  })();
-</script>
+  <p class="get-foot">Built by a parent whose daughter passed her 11+ with it. <a href="/">More about the app</a></p>
 
 </main>
-
-<footer>
-  <div class="wrap foot">
-    <div>© 2026 11+ Test Coach · 11testcoach.co.uk</div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/support/">Support</a>
-    </nav>
-  </div>
-</footer>
 
 </body>
 </html>
